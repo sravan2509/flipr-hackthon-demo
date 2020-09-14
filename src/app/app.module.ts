@@ -8,6 +8,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { UpdatesComponent } from './updates/updates.component';
 import { GraphComponent } from './graph/graph.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GraphComponent } from './graph/graph.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
