@@ -1,0 +1,95 @@
+<div class="body">
+    <h1 class="Hospital">Hospitals</h1>
+     <h3 class="summary">Summary</h3>
+     <div class="summarybox">
+         <h4>Rural Hospitals : 174</h4>
+         <h4 class="srb">Rural Beds : 174</h4>
+         <h4>Urban Hospitals : 174</h4>
+         <h4 class="sub">Urban Beds : 174</h4>
+         <h4>Total Hospitals : 174</h4>
+         <h4 class="stb">Total Beds : 174</h4>
+     </div>
+     <img src="../../assets/Group 6.svg" alt="" class="hospitalimg">
+     <h3 class="select">Select State:</h3>
+     <div class="dropdown">
+         <button class="dropbtn">Dropdown</button>
+         <div class="dropdown-content">
+         <a href="#" *ngFor="let data of cartarr;let i=index">{{data.state}}</a>
+         </div>
+       </div>
+ 
+       <!-- State details -->
+ 
+       <div class="statebox">
+           <h2>State Details</h2>
+           <h4>Rural Hospitals : 174</h4>
+           <h4 class="srb">Rural Beds : 174</h4>
+           <h4>Urban Hospitals : 174</h4>
+           <h4 class="sub">Urban Beds : 174</h4>
+           <h4>Total Hospitals : 174</h4>
+           <h4  class="stb">Total Beds : 174</h4>
+       </div>
+ 
+ 
+       <!-- Type of Org selection -->
+       <h3 class="select">Select Organization:</h3>
+ 
+       <div class="dropdown">
+         <button class="dropbtn">Dropdown1</button>
+         <div class="dropdown-content">
+         <a href="#" *ngFor="let data of cartarr;let i=index">{{data.state}}</a>
+         </div>
+       </div>
+       <!-- Tables -->
+ 
+ 
+       <table class="adjustment layout display responsive-table">
+         <thead>
+             <tr class=" font2">
+                 <th>S.NO</th>
+                 <th>College Name</th>
+                 <th>Organization</th>
+                 <th>Admissions Capacity</th>
+                 <th>Bed Capacity</th>
+                
+             </tr>
+         </thead>
+         <tbody>
+           
+                
+                <tr *ngFor="let data of cartarr;let i=index">
+                 <td class="organisationnumber font5">{{i+1}}</td>
+                 <td class="organisationname font5">
+                     <div class="row ">
+                         <div class="col head " >
+                             <b style="color: rgba(9, 23, 105, 0.952);">{{data.name}}</b><br>
+                         </div>
+                     </div>
+                 </td>
+                 <td class="mt-0">
+                     <b style="color: rgba(9, 23, 105, 0.952);">{{data.ownership}}</b><br>
+                 </td>
+                 <td>
+                     <div class=" head pdetail1">
+                         <b style="color: rgba(9, 23, 105, 0.952);">{{data.admissionCapacity}}</b><br>
+                     </div>
+                 </td>
+                <td>
+                 <b style="color: rgba(9, 23, 105, 0.952);">{{data.hospitalBeds}}</b><br>
+                 </td>
+                </tr>
+                
+         </tbody>
+     
+              <tfoot>
+                  <tr >
+                     <td colspan="4" ><div class="price">End Of PAGE</div></td>
+                         
+                     
+                  </tr>
+                
+              </tfoot>  
+        
+     
+     </table>
+ </div>

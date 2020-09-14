@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+ /* body{
+         background-color:rgba(214, 177, 177, 0.171);
+ } */
+    .heading1 {
+        font-size: 32px;
+        font-weight: 600;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .heading2 {
+        font-size: 24px;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .sub-head {
+        font-size: 16px;
+        font-weight: 500;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .text {
+        font-size: 15px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+    }
+    
+    .subtext {
+        font-size: 13px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 100;
+    }
+    
+    .buttonStyle {
+        font-size: 13px;
+        font-weight: 400;
+        font-family: 'Poppins', sans-serif;
+        border-radius: 30px !important ;
+        padding:10px 20px ;
+        border: none;
+    
+    }
+    .filledBtn{
+        font-size: 13px;
+        font-weight: 400;
+        font-family: 'Poppins',sans-serif;
+        background-color: #E76469;
+        color: #FFFFFF;
+        border: none;
+        /* // outline:none; */
+    }
+    
+    .col{
+        display: flex;
+        flex-direction: column;
+    }

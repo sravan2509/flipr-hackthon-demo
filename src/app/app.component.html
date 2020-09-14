@@ -1,9 +1,13 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  
-</div>
+<div class="navbar">
+  <nav>
+    <ul class="heading">
+      <li ><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/hospitals" routerLinkActive="active">Hospitals</a></li>
+      <li><a routerLink="/updates" routerLinkActive="active">Updates</a></li>
+      <li><a routerLink="/graph" routerLinkActive="active">Analysis</a></li>
+      <li><a routerLink="/contacts" routerLinkActive="active">Contacts</a></li>
 
+    </ul>
+  </nav>
+</div>
 <router-outlet></router-outlet>

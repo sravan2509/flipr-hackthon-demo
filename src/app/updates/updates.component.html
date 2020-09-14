@@ -1,0 +1,54 @@
+<div class="heading1 noti" >
+    Notifications
+</div>
+{{notice[1]}}
+<div class="noti-display">
+    <div class="notification adj">
+
+            
+        <!-- <table class="layout display sub-text">
+          
+            <tbody>
+              
+                   
+                   <tr *ngFor = "let noti of notice">
+                    
+                    <td  >
+                       <b>Date:</b>{{noti.date}}
+                    </td>
+                    <td >
+                       <b>Title:</b>{{noti.title}}
+                       <div class="small"><b>Link:</b><a target="_blank" [href]=noti.link>{{noti.link}}</a></div>
+                    </td>
+                   
+                   <td class="big">
+                    <b>Link:</b><a target="_blank" [href]=noti.link>{{noti.link}}</a>
+                    </td>
+                   </tr>
+                   
+            </tbody>
+        
+               
+        
+        </table> -->
+    </div>
+    <div class="data">
+        <div class="search">
+            
+           <div class="sub-head">Search for Date...</div>
+           <div class="search_input" id="search_input_box">
+            <div class="container">
+              <form class=" justify-content-between" style="display: flex;">
+                <input type="text" class="form-control" id="search_input" placeholder="Search Here">
+                <button type="submit" class="btn"></button>
+               
+              </form>
+            </div>
+        </div>
+        <div class="notidata">
+            <!-- <div class="sub-head" style="color: black;">Total notification :{{notification.length}}</div> -->
+            <!-- <div class="sub-head" style="color: green;">Latest notification :{{notification[0].date}}</div> -->
+            <!-- <div class="sub-head" style="color:red ;">OLdest notification :{{notification[notification.length-1].date}}</div> -->
+        </div>
+    </div>
+</div>
