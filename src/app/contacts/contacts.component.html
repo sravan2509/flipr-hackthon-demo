@@ -1,1 +1,31 @@
-<p>contacts works!</p>
+<div class="body">
+    <h1 class="Contact">Contacts</h1>
+
+    <div class="refernce">
+        <div class="onecat">
+
+    
+            <button class="phonenumber">PhoneNO: 1234567890</button>
+            <button class="tollfree">Toll-Free: 1234567890</button>
+            <button class="Email">Email: email@gmail.com</button>
+            </div>
+        
+            <div class="basic">
+                <img src="../../assets/twitter.svg"  class="twitter" alt="">
+                <img src="../../assets/logo.svg" class="face" alt="">
+                <h5 class="media">Media : http:////////////////Heroku</h5>
+            </div>
+    </div>
+
+
+    <div   class="statecontact">
+        <h4 class="head">State Wise Contact:</h4>
+        <div *ngFor="let item of regional">
+            <div   class="SingleState"> 
+                <h4 class="state">{{item.loc}}</h4>
+                <h4 class="stateno">{{item.number}}</h4>
+            </div>
+        </div>
+    </div>
+    
+</div>
