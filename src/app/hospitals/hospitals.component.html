@@ -15,7 +15,7 @@
          <button class="dropbtn">Dropdown</button>
          <div class="dropdown-content">
             <select [(ngModel)]="selectedLevel" (change)="selected()">
-                <option *ngFor="let item of state" [ngValue]="item">{{item.state}}</option>
+                <option *ngFor="let item of states" [ngValue]="item">{{item.state}}</option>
               </select>
          </div>
        </div>
