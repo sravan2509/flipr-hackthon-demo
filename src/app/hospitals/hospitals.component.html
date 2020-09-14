@@ -2,22 +2,24 @@
     <h1 class="Hospital">Hospitals</h1>
      <h3 class="summary">Summary</h3>
      <div class="summarybox">
-         <h4>Rural Hospitals : 174</h4>
-         <h4 class="srb">Rural Beds : 174</h4>
-         <h4>Urban Hospitals : 174</h4>
-         <h4 class="sub">Urban Beds : 174</h4>
-         <h4>Total Hospitals : 174</h4>
-         <h4 class="stb">Total Beds : 174</h4>
+         <h4>Rural Hospitals : {{summary.ruralHospitals}}</h4>
+         <h4 class="srb">Rural Beds : {{summary.ruralBeds}}</h4>
+         <h4>Urban Hospitals : {{summary.urbanHospitals}}</h4>
+         <h4 class="sub">Urban Beds : {{summary.urbanBeds}}</h4>
+         <h4>Total Hospitals : {{summary.totalHospitals}}</h4>
+         <h4 class="stb">Total Beds : {{summary.totalBeds}}</h4>
      </div>
      <img src="../../assets/Group 6.svg" alt="" class="hospitalimg">
      <h3 class="select">Select State:</h3>
      <div class="dropdown">
          <button class="dropbtn">Dropdown</button>
          <div class="dropdown-content">
-         <a href="#" *ngFor="let data of cartarr;let i=index">{{data.state}}</a>
+            <select [(ngModel)]="selectedLevel" (change)="selected()">
+                <option *ngFor="let item of state" [ngValue]="item">{{item.state}}</option>
+              </select>
          </div>
        </div>
- 
+      
        <!-- State details -->
  
        <div class="statebox">
@@ -37,7 +39,9 @@
        <div class="dropdown">
          <button class="dropbtn">Dropdown1</button>
          <div class="dropdown-content">
-         <a href="#" *ngFor="let data of cartarr;let i=index">{{data.state}}</a>
+            <select [(ngModel)]="selectedLevel" (change)="selected()">
+                <option *ngFor="let item of dept" [ngValue]="item">{{item}}</option>
+              </select>
          </div>
        </div>
        <!-- Tables -->
@@ -57,7 +61,7 @@
          <tbody>
            
                 
-                <tr *ngFor="let data of cartarr;let i=index">
+                <tr *ngFor="let data of medicalbeds;let i=index">
                  <td class="organisationnumber font5">{{i+1}}</td>
                  <td class="organisationname font5">
                      <div class="row ">

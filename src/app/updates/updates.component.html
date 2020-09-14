@@ -7,7 +7,7 @@
         <table class="layout display sub-text" >   
               
             <tbody>
-                 <tr *ngFor = "let noti of notification">
+                 <tr *ngFor = "let noti of listedplaces;index as i">
                     <td >
                        <b>Date:</b>{{noti.date}}
                     </td>
@@ -36,11 +36,17 @@
             <div class="search_input" id="search_input_box">
              <div class="container">
                <form class=" justify-content-between" style="display: flex;">
-                 <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-                 <button type="submit" class="btn"></button>
-                
-               </form>
-             </div>
-         </div>
-    </div>
+                <input type="text" class="form-control"  id="search_input" placeholder="Search Here" (keyup)="search($event.target.value)">
+                <button type="submit" class="btn"></button>
+               
+              </form>
+            </div>
+        </div>
+
+   </div>
 </div>
+<li *ngFor="let place of listedplaces" >
+                                 <h3>{{place.title}}</h3>
+                                 <h3>{{place.link}}</h3>
+                                 <button class="btn" (click)="Location(place)" class="btn">My Location</button>
+                             </li>

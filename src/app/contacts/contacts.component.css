@@ -2,7 +2,7 @@
     top: 0;
     left: 0;
     margin: 0;
-    background-image: url('../../assets/Group 16.svg');
+    background-image: url('../../assets/Group16.svg');
     height: auto;
 }
 .roboto, .Contact {
@@ -100,7 +100,7 @@
     margin-right: 10px;
     margin-left: 10px;
     border-radius: 8px;
-    background-color: #e76469;
+    background-color: #f78084;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -111,4 +111,129 @@
 }
 .statecontact .SingleState .stateno {
     margin-top: 4px;
+}
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+    .statecontact {
+        grid-template-rows: auto;
+        grid-template-columns: repeat(3, 0.3fr);
+        grid-row-gap: 20px;
+        grid-column-gap: 0px;
+   }
+    .statecontact .SingleState {
+        margin-right: 0px;
+        margin-left: 0px;
+        border-radius: 8px;
+   }
+}
+@media only screen and (min-width: 991px) and (max-width: 1024px) {
+    .statecontact {
+        grid-template-rows: auto;
+        grid-template-columns: repeat(3, 1fr);
+   }
+}
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+    .statecontact {
+        grid-template-rows: auto;
+        grid-template-columns: repeat(3, 0.6fr);
+        grid-row-gap: 20px;
+        grid-column-gap: 0px;
+   }
+    .statecontact .SingleState {
+        margin-right: 0px;
+        margin-left: 0px;
+   }
+}
+@media screen and (max-width: 767px) {
+    .statecontact {
+        grid-template-rows: auto;
+        grid-template-columns: repeat(2, 0.5fr);
+        grid-row-gap: 20px;
+        grid-column-gap: 0px;
+   }
+    .statecontact .SingleState {
+        margin-right: 0px;
+        margin-left: 0px;
+        width: 100px;
+        height: 50px;
+        border-radius: 8px;
+        background-color: #f78084;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+   }
+    .statecontact .SingleState .state {
+        margin-top: 0px;
+        font-size: 10px;
+   }
+    .statecontact .SingleState .stateno {
+        margin-top: 0px;
+        font-size: 8px;
+   }
+    .Contact {
+        font-size: 24px;
+        font-weight: bolder;
+        margin-left: 40px;
+        margin-top: 50px;
+   }
+    .refernce {
+        display: flex;
+        flex-direction: row;
+   }
+    .refernce .onecat {
+        margin-left: 40px;
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+   }
+    .refernce .onecat .phonenumber {
+        border: none;
+        padding: 4px;
+        background-color: #01e0ad;
+        color: white;
+        font-size: 10px;
+        font-weight: 400;
+        border-radius: 10px;
+   }
+    .refernce .onecat .tollfree {
+        border: none;
+        padding: 4px;
+        background-color: #01e0ad;
+        color: white;
+        font-size: 10px;
+        font-weight: 400;
+        margin: 10px 0;
+        border-radius: 10px;
+   }
+    .refernce .onecat .Email {
+        border: none;
+        padding: 4px;
+        background-color: #e76469;
+        color: white;
+        font-size: 10px;
+        font-weight: 400;
+        border-radius: 10px;
+   }
+    .refernce .basic {
+        margin-left: -150px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 200px;
+   }
+    .refernce .basic .twitter {
+        width: 30px;
+        height: auto;
+        margin-left: -50px;
+   }
+    .refernce .basic .face {
+        width: auto;
+        height: 16px;
+        margin-left: -185px;
+        margin-top: 20px;
+   }
+    .refernce .basic .media {
+        margin-top: 20px;
+        margin-left: -50px;
+        font-size: 12px;
+   }
 }

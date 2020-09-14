@@ -10,9 +10,7 @@ ngApp.use(bp.json())
 
 ngApp.use(express.static('./dist/covid-data'));
 
-ngApp.get('/*', function (request, response) {
-    response.sendFile(path.join(__dirname, '/dist/covid-data/index.html'));
-});
+
 
 ngApp.get('/data1', (req,res)=>{
 
@@ -25,7 +23,7 @@ ngApp.get('/data1', (req,res)=>{
     .then(res => res.json())
     .then((json) =>{
         console.log('data1: ',json);
-        res.send(json)
+        res.json(json)
         //res.json({"regional":json.data.contacts.regional })
     });
 })
@@ -41,8 +39,9 @@ ngApp.get('/data2', (req,res)=>{
     .then(res => res.json())
     .then((json) =>{
         console.log("data2: ",json);
-        res.send(json)
-        //res.json({"notifications":json.data.notifications })
+        // res.send(json)
+        res.json(json)
+        // res.json({"notifications":json.data.notifications })
     });
 })
 
@@ -77,6 +76,10 @@ ngApp.get('/data3b', (req,res)=>{
        // res.json({"medicalcolleges":json.data.medicalColleges})
     });
 })
+
+ngApp.get('/*', function (request, response) {
+    response.sendFile(path.join(__dirname, '/dist/covid-data/index.html'));
+});
 
 console.log("Runnning server.js");
 ngApp.listen(process.env.PORT || 8080);

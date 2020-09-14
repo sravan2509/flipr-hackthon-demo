@@ -1,0 +1,11 @@
+.alert{
+    width: 90%;
+    margin: auto;
+    padding-top: 70px;
+
+}
+.alert img{
+    width: 100%;
+    border-radius: 50px;
+
+}
