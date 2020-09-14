@@ -5,15 +5,17 @@
         <div class="onecat">
 
     
-            <button class="phonenumber">PhoneNO: 1234567890</button>
-            <button class="tollfree">Toll-Free: 1234567890</button>
-            <button class="Email">Email: email@gmail.com</button>
+            <button class="phonenumber">PhoneNO: {{api.data.contacts.primary.number}}</button>
+            <button class="tollfree">Toll-Free:1075 </button>
+            <button class="Email">Email:{{api.data.contacts.primary.email}} </button>
             </div>
         
             <div class="basic">
-                <img src="../../assets/twitter.svg"  class="twitter" alt="">
-                <img src="../../assets/logo.svg" class="face" alt="">
-                <h5 class="media">Media : http:////////////////Heroku</h5>
+                <a  target="_blank"href="https://twitter.com/MoHFW_INDIA"><img src="../../assets/twitter.svg"  class="twitter" alt=""></a>
+                <a  target="_blank" href="https://www.facebook.com/MoHFWIndia"><img src="../../assets/logo.svg" class="face" alt=""></a>
+                
+                
+                <h5 class="media">Media :{{api.data.contacts.primary.media[0]}}</h5>
             </div>
     </div>
 
