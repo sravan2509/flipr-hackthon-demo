@@ -12,56 +12,94 @@
      <img src="../../assets/Group 6.svg" alt="" class="hospitalimg">
      <h3 class="select">Select State:</h3>
      <div class="dropdown">
-         <button class="dropbtn">Dropdown</button>
-         <div class="dropdown-content">
-            <select [(ngModel)]="selectedLevel" (change)="selected()">
+         <div class="dropbtn ">
+            <select class="select-css"[(ngModel)]="selectedLevel" (change)="selected()">
                 <option *ngFor="let item of states" [ngValue]="item">{{item.state}}</option>
-              </select>
+            </select>    
          </div>
        </div>
-      
-       <!-- State details -->
- 
-       <div class="statebox">
-           <h2>{{states[0].state}}</h2>
-           <h4>Rural Hospitals :       {{states[0].ruralHospitals}}</h4>
-           <h4 class="srb">Rural Beds :{{states[0].ruralBeds}}</h4>
-           <h4>Urban Hospitals :       {{states[0].urbanHospitals}}</h4>
-           <h4 class="sub">Urban Beds :{{states[0].urbanBeds}}</h4>
-           <h4>Total Hospitals :       {{states[0].totalHospitals}}</h4>
-           <h4  class="stb">Total Beds: {{states[0].totalBeds}}</h4>
+   <!-- State details -->
+       <div class="statebox" *ngIf="!selectedbool">
+        <h2>{{states[0].state}}</h2>
+        <h4>Rural Hospitals :       {{states[0].ruralHospitals}}</h4>
+        <h4 class="srb">Rural Beds :{{states[0].ruralBeds}}</h4>
+        <h4>Urban Hospitals :       {{states[0].urbanHospitals}}</h4>
+        <h4 class="sub">Urban Beds :{{states[0].urbanBeds}}</h4>
+        <h4>Total Hospitals :       {{states[0].totalHospitals}}</h4>
+        <h4  class="stb">Total Beds: {{states[0].totalBeds}}</h4>
        </div>
- 
- 
+
+       <div class="statebox" *ngIf="selectedbool">
+           <h2>{{selectedLevel.state}}</h2>
+           <h4>Rural Hospitals :       {{selectedLevel.ruralHospitals}}</h4>
+           <h4 class="srb">Rural Beds :{{selectedLevel.ruralBeds}}</h4>
+           <h4>Urban Hospitals :       {{selectedLevel.urbanHospitals}}</h4>
+           <h4 class="sub">Urban Beds :{{selectedLevel.urbanBeds}}</h4>
+           <h4>Total Hospitals :       {{selectedLevel.totalHospitals}}</h4>
+           <h4  class="stb">Total Beds: {{selectedLevel.totalBeds}}</h4>
+       </div>
        <!-- Type of Org selection -->
        <h3 class="select">Select Organization:</h3>
- 
+
        <div class="dropdown">
-         <button class="dropbtn">Dropdown1</button>
-         <div class="dropdown-content">
-            <select [(ngModel)]="selectedLevel" (change)="selected()">
-                <option *ngFor="let item of dept" [ngValue]="item">{{item}}</option>
-              </select>
-         </div>
-       </div>
+        <div class="dropbtn ">
+           <select class="select-css"[(ngModel)]="selectedLevel1" (change)="selected1()">
+               <option *ngFor="let item of dept" [ngValue]="item">{{item}}</option>
+           </select>    
+        </div>
+      </div>
        <!-- Tables -->
- 
- 
-       <table class="adjustment layout display responsive-table">
+       <table class="adjustment layout display responsive-table" *ngIf="!selectedbool1">
+        <thead>
+            <tr class=" font2">
+                <th>S.NO</th>
+                <th>College Name</th>
+                <th>Organization</th>
+                <th>Admissions Capacity</th>
+                <th>Bed Capacity</th> 
+            </tr>
+        </thead>
+        <tbody>   
+               <tr *ngFor="let data of medicalbeds;let i=index">
+                <td class="organisationnumber font5">{{i+1}}</td>
+                <td class="organisationname font5">
+                    <div class="row ">
+                        <div class="col head " >
+                            <b style="color: rgba(9, 23, 105, 0.952);">{{data.name}}</b><br>
+                        </div>
+                    </div>
+                </td>
+                <td class="mt-0">
+                    <b style="color: rgba(9, 23, 105, 0.952);">{{data.ownership}}</b><br>
+                </td>
+                <td>
+                    <div class=" head pdetail1">
+                        <b style="color: rgba(9, 23, 105, 0.952);">{{data.admissionCapacity}}</b><br>
+                    </div>
+                </td>
+               <td>
+                <b style="color: rgba(9, 23, 105, 0.952);">{{data.hospitalBeds}}</b><br>
+                </td>
+               </tr>              
+        </tbody>   
+             <tfoot>
+                 <tr >
+                    <td colspan="4" ><div class="price">End Of PAGE</div></td>                   
+                 </tr>
+             </tfoot>  
+    </table>
+       <table class="adjustment layout display responsive-table" *ngIf="selectedbool1">
          <thead>
              <tr class=" font2">
                  <th>S.NO</th>
                  <th>College Name</th>
                  <th>Organization</th>
                  <th>Admissions Capacity</th>
-                 <th>Bed Capacity</th>
-                
+                 <th>Bed Capacity</th>               
              </tr>
          </thead>
          <tbody>
-           
-                
-                <tr *ngFor="let data of medicalbeds;let i=index">
+                <tr *ngFor="let data of sortedmedicalbed;let i=index">
                  <td class="organisationnumber font5">{{i+1}}</td>
                  <td class="organisationname font5">
                      <div class="row ">
@@ -81,19 +119,12 @@
                 <td>
                  <b style="color: rgba(9, 23, 105, 0.952);">{{data.hospitalBeds}}</b><br>
                  </td>
-                </tr>
-                
-         </tbody>
-     
+                </tr>            
+         </tbody>     
               <tfoot>
                   <tr >
-                     <td colspan="4" ><div class="price">End Of PAGE</div></td>
-                         
-                     
-                  </tr>
-                
+                     <td colspan="4" ><div class="price">End Of PAGE</div></td>           
+                  </tr>               
               </tfoot>  
-        
-     
      </table>
  </div>

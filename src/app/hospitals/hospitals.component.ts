@@ -12,11 +12,15 @@ public states
 public summary
 public medicalcollegebeds_api
 public medicalbeds
-selectedLevel
-  Locationuser: any;
-  places=[]
-  dept=["Govt.","University","Society","Private","Govt-Society","Trust"]
-  constructor(private Getdata:GetDataService) { }
+selectedbool=false
+selectedbool1=false
+sortedmedicalbed=[]
+Locationuser: any;
+places=[]
+dept=["All Ownership","Govt.","University","Society","Private","Govt-Society","Trust","Govt"]
+selectedLevel: any="select..";
+selectedLevel1: any="select..";
+constructor(private Getdata:GetDataService) { }
 
   ngOnInit() {
     this.Getdata.get_task3a().subscribe(c=>{
@@ -28,94 +32,110 @@ selectedLevel
     this.Getdata.get_task3b().subscribe(c=>{
       this.medicalcollegebeds_api=c
       this.medicalbeds=this.medicalcollegebeds_api.data.medicalColleges
+      this.sortedmedicalbed=this.medicalbeds
     })
   }
 
   
   selected(){
-this.search(this.selectedLevel)
+    // alert(this.selectedLevel.state)
+this.selectedbool=true
+// this.search(this.selectedLevel)
   }
-listedplaces=[]
-pure=true
-  previousvalue
-  noproducts=false
-  previoussearch=new Array()
-  search(value){
-    this.pure=false
-    if(this.previousvalue!=value){
-      this.previousvalue=value
-      console.log(value.length);
+  selected1(){
+    // alert(this.selectedLevel1)
+this.selectedbool1=true
+// this.search(this.selectedLevel)
+if(this.selectedLevel1.toLowerCase()==="all ownership"){
+  this.sortedmedicalbed=this.medicalbeds
+}
+else{
+this.sortedmedicalbed.filter(x=>{x.ownership.toLowerCase()==this.selectedLevel1.toLowerCase()})
+}
+  }
+ 
+  
+// listedplaces=[]
+// pure=true
+//   previousvalue
+//   noproducts=false
+//   previoussearch=new Array()
+//   search(value){
+//     this.pure=false
+//     if(this.previousvalue!=value){
+//       this.previousvalue=value
+//       console.log(value.length);
 
-      if(this.listedplaces || value.length==0){
-        this.pure=true
-this.listedplaces.splice(0,this.listedplaces.length)
-        console.log(this.listedplaces);
-        this.noproducts=false
-      }
-    }
+//       if(this.listedplaces || value.length==0){
+//         this.pure=true
+// this.listedplaces.splice(0,this.listedplaces.length)
+//         console.log(this.listedplaces);
+//         this.noproducts=false
+//       }
+//     }
 
-    if(value.length!=0){
-      this.places.forEach((element)=>{
-        if(element.title.toLowerCase()===value || element.link.toLowerCase()===value){
-            this.listedplaces.push(element)
-        }
-        if(element.state.toLowerCase().includes(value)){
+//     if(value.length!=0){
+//       this.places.forEach((element)=>{
+//         if(element.title.toLowerCase()===value || element.link.toLowerCase()===value){
+//             this.listedplaces.push(element)
+//         }
+//         if(element.state.toLowerCase().includes(value)){
          
-           this.listedplaces.push(element)}
+//            this.listedplaces.push(element)}
         
      
-        if(element.dept.toLowerCase().includes(value)){
+//         if(element.dept.toLowerCase().includes(value)){
          
-           this.listedplaces.push(element)}
+//            this.listedplaces.push(element)}
         
-      })
-    }
+//       })
+//     }
 
-    if(this.listedplaces.length===0 && value.length!=0){
-      this.noproducts=true
-    }
-  }
-  searchs(value){
-    this.pure=false
-    if(this.previousvalue!=value){
-      this.previousvalue=value
-      console.log(value.length);
+//     if(this.listedplaces.length===0 && value.length!=0){
+//       this.noproducts=true
+//     }
+//   }
+//   searchs(value){
+//     this.pure=false
+//     if(this.previousvalue!=value){
+//       this.previousvalue=value
+//       console.log(value.length);
 
-      if(this.listedplaces || value.length==0){
-        this.pure=true
-this.listedplaces.splice(0,this.listedplaces.length)
-        console.log(this.listedplaces);
-        this.noproducts=false
-      }
-    }
+//       if(this.listedplaces || value.length==0){
+//         this.pure=true
+// this.listedplaces.splice(0,this.listedplaces.length)
+//         console.log(this.listedplaces);
+//         this.noproducts=false
+//       }
+//     }
 
-    if(value.length!=0){
-      this.medicalbeds.forEach((element)=>{
-        if(element.ownership.toLowerCase()==value ){
-            this.listedplaces.push(element)
-        }
-        if(element.ownership==value ){
-            this.listedplaces.push(element)
-        }
-        if(element.state.toLowerCase().includes(value)){
+//     if(value.length!=0){
+//       this.medicalbeds.forEach((element)=>{
+//         if(element.ownership.toLowerCase()==value ){
+//             this.listedplaces.push(element)
+//         }
+//         if(element.ownership==value ){
+//             this.listedplaces.push(element)
+//         }
+//         if(element.state.toLowerCase().includes(value)){
          
-           this.listedplaces.push(element)}
+//            this.listedplaces.push(element)}
         
      
-        if(element.dept.toLowerCase().includes(value)){
+//         if(element.dept.toLowerCase().includes(value)){
          
-           this.listedplaces.push(element)}
+//            this.listedplaces.push(element)}
         
-      })
-    }
+//       })
+//     }
 
-    if(this.listedplaces.length===0 && value.length!=0){
-      this.noproducts=true
-    }
-  }
-  Location(place){
-    this.Locationuser=place
-  }
+//     if(this.listedplaces.length===0 && value.length!=0){
+//       this.noproducts=true
+//     }
+//   }
+//   Location(place){
+//     this.Locationuser=place
+//   }
   cartarr=[{
     "state": "A & N Islands",
     "name": "Andaman & Nicobar Islands Insitute of Medical Sciences, Port Blair",
